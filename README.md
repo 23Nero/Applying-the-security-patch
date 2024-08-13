@@ -17,9 +17,28 @@
 ```
 #### 4. How do we get the failure log while running STS?
 
+To automatically collect some logs on failure, you can add the following option to your Tradefed command line:
+
 ```bash
+--auto-collect LOGCAT_ON_FAILURE
+or
+--auto-collect SCREENSHOT_ON_FAILURE
 
 ```
+
+For convenience, logcat and screenshot each have a direct flag:
+
+```bash
+--logcat-on-failure
+and
+--screenshot-on-failure
+
+```
+
+reference:
+
+https://source.android.com/docs/core/tests/tradefed/testing/through-tf/log-on-failure
+
 #### 5. Let’s imagine you have 2 kinds of devices (such as SX5, M20). How do you run STS on those devices in parallel? 
 
 ```bash
