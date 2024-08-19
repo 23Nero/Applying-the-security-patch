@@ -17,6 +17,11 @@
 ```
 #### 4. How do we get the failure log while running STS?
 
+```bash
+  adb logcat
+
+```
+
 To automatically collect some logs on failure, you can add the following option to your Tradefed command line:
 
 ```bash
@@ -44,6 +49,12 @@ https://source.android.com/docs/core/tests/tradefed/testing/through-tf/log-on-fa
 ```bash
   run [test_plan] --shard-count=X -s SERIAL1 -s SERIALX
 ```
+Example:
+
+```bash
+  run [test_plan] --shard-count=2 -s SERIAL_SX5 -s SERIAL_M20
+```
+
 reference: 
 
 https://source.android.com/docs/compatibility/cts/run
@@ -68,6 +79,7 @@ reference: https://source.android.com/docs/core/tests/development/atest
 
 #### 7. Your colleague shared a STS result that has some failures. To retry from that result, what do you do? 
 
+- Reboot, factory reset, config device again.
 - Review the STS result, analyze log result to determine which tests failed. 
 - Fix failed test and run single test failed.
 - Monitor the log run, and debug if failed again.
@@ -84,3 +96,32 @@ reference: https://source.android.com/docs/core/tests/development/atest
 
 #### 10. Create a script to apply a single CVE to your source code with the input: security patch and Android source code?
 
+
+#### 11. Based on the test result without html file, how to read? 
+
+
+
+#### 12. When running the test, which 2 folders are created and their uses?
+- results: this folder contains the results of the test, including reports and results information.
+- logs: this directory contains detailed log files about the test process, helping you track and analyze events and errors.
+
+#### 13. How to check the number of retries when I have results given by others?
+
+- We can use "l r" to check ID number.
+- Use simple python script to read result/test_result.xml file, to read invocation-id="XX"
+
+```bash
+# python file created in android-sts folder
+import xml.etree.ElementTree as ET
+
+xml_file = './results/latest/test_result.xml'
+
+tree = ET.parse(xml_file)
+root = tree.getroot()
+
+for build in root.findall('Build'):
+    invocation_id = build.get('invocation-id')
+    
+    print(f"Invocation ID: {invocation_id}")
+    print(f"Number of retries: {int(invocation_id) -1 }  ")
+```
