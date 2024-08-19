@@ -52,12 +52,16 @@ https://source.android.com/docs/core/tests/tradefed/architecture/xml-config
 
 #### 6. How do you run a single module? A single test case? A specific architecture (e.g arm-v8) 
 
-```bash
 Run a module:
+
   run [testplan] [-s SERIAL] -m module_name
+
+
 Run a single testcase:
+
   run [testplan] [-s SERIAL] -m module_name -t testcase
-```
+
+
 reference: https://source.android.com/docs/core/tests/development/atest
 
 
