@@ -19,7 +19,6 @@
 
 ```bash
   adb logcat
-
 ```
 
 - To automatically collect some logs on failure, you can add the following option to your Tradefed command line:
@@ -28,7 +27,6 @@
   --auto-collect LOGCAT_ON_FAILURE
   or
   --auto-collect SCREENSHOT_ON_FAILURE
-
 ```
 
 - For convenience, logcat and screenshot each have a direct flag:
@@ -37,7 +35,6 @@
   --logcat-on-failure
   and
   --screenshot-on-failure
-
 ```
 
 reference:
