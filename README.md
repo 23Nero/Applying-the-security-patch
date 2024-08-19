@@ -99,6 +99,12 @@ reference: https://source.android.com/docs/core/tests/development/atest
 
 #### 11. Based on the test result without html file, how to read? 
 
+- In folder lastest/logs/*, we can cat and grep to see CVE fail.
+
+  cat event-logs_xxx.txt | grep FAIL
+  
+- Then trace that fail ID in test_result.xml to know generic information of fail
+- Know more iformation of fail, we can trace in **device_log_cat_test** file.
 
 
 #### 12. When running the test, which 2 folders are created and their uses?
