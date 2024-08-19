@@ -42,7 +42,7 @@ https://source.android.com/docs/core/tests/tradefed/testing/through-tf/log-on-fa
 #### 5. Let’s imagine you have 2 kinds of devices (such as SX5, M20). How do you run STS on those devices in parallel? 
 
 ```bash
-
+  run [test_plan] --shard-count=X -s SERIAL1 -s SERIALX
 ```
 reference: 
 
