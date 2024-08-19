@@ -128,3 +128,26 @@ for build in root.findall('Build'):
 
 #### 13. Meaning of files in log folder?
 
+- **device_logcat_setup_xxx.txt**: contain logcat from device during setup phase before starting test.
+
+- **device_logcat_teardown_xxx.txt**: contain logcat from device during end of test phase.
+
+- **device_logcat_test_xxx.txt**: contain logcat  from the device while the tests are being executed. This is the main log, containing detailed information about the activities and events that occur during the test.
+
+- **event-logs_xxx.txt**: contain test-related events, such as system or application events.
+
+- **executeShellCommandLog_xxx.txt**: contain  shell commands executed on the device during testing.
+
+- **filter-arm64-_xxx.txt**: contain  filters or excludes specific tests or test cases.
+
+- **host_adb_log_xxx.txt**: contain  logs from adb on the host.
+
+- **host_log_xxx.txt**: contain logs from the test host. Provides information about activities and events on the host during the test.
+
+- **suite-exclude-filters_xxx.txt**: contain exclusion filters for the test suite.
+
+- **tradefed-expanded-config_xxx.xml**: contain the Tradefed expanded configuration.
+
+
+
+
