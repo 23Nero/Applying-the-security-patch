@@ -22,21 +22,21 @@
 
 ```
 
-To automatically collect some logs on failure, you can add the following option to your Tradefed command line:
+- To automatically collect some logs on failure, you can add the following option to your Tradefed command line:
 
 ```bash
---auto-collect LOGCAT_ON_FAILURE
-or
---auto-collect SCREENSHOT_ON_FAILURE
+  --auto-collect LOGCAT_ON_FAILURE
+  or
+  --auto-collect SCREENSHOT_ON_FAILURE
 
 ```
 
-For convenience, logcat and screenshot each have a direct flag:
+- For convenience, logcat and screenshot each have a direct flag:
 
 ```bash
---logcat-on-failure
-and
---screenshot-on-failure
+  --logcat-on-failure
+  and
+  --screenshot-on-failure
 
 ```
 
