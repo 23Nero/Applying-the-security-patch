@@ -79,7 +79,7 @@ reference: https://source.android.com/docs/core/tests/development/atest
 
 #### 7. Your colleague shared a STS result that has some failures. To retry from that result, what do you do? 
 
-- Reboot, factory reset, config device again.
+- Reboot, factory reset, config device again: https://source.android.com/docs/compatibility/cts/setup#device-config.
 - Review the STS result, analyze log result to determine which tests failed. 
 - Fix failed test and run single test failed.
 - Monitor the log run, and debug if failed again.
@@ -91,8 +91,10 @@ reference: https://source.android.com/docs/core/tests/development/atest
 
 #### 9. What do you do if STS/BTS reports a CVE failure that has already been applied? 
 - Check the Patch Level
+- Analyze ID fail in **host_log_xxx.txt**
+- Reboot -> factory reset -> config device.
 - Run the singel test failed
-- Analyze log failed
+- Analyze log failed if fail again.
 
 #### 10. Create a script to apply a single CVE to your source code with the input: security patch and Android source code?
 ```bash
@@ -171,7 +173,7 @@ if __name__ == "__main__":
 #### 13. How to check the number of retries when I have results given by others?
 
 - We can use "l r" to check ID number.
-- Use simple python script to read result/test_result.xml file, to read invocation-id="XX"
+- Use simple python script to read **result/test_result.xml** file, to read **invocation-id="XX"**
 
 ```bash
 # python file created in android-sts folder
