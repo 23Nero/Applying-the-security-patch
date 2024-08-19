@@ -95,6 +95,63 @@ reference: https://source.android.com/docs/core/tests/development/atest
 - Analyze log failed
 
 #### 10. Create a script to apply a single CVE to your source code with the input: security patch and Android source code?
+```bash
+
+#the python script is being completed
+
+import os
+import subprocess
+
+PATCH_FILE = '/media/lamle/HDD/2024-08-20240809T075818Z-001/2024-08/2024-08-android-bulletin-partner-preview-patches/patches/android-13.0.0_r1/platform'
+SOURCE_CODE_DIR = '/media/lamle/HDD/sx5_hdd/LINUX/android'
+ISSUE_MAPPING_DIR = '/media/lamle/HDD/2024-08-20240809T075818Z-001/2024-08/2024-08-android-bulletin-partner-preview-patches/patches/issue-mapping'
+
+def find_patch_file(cve_id):
+    for root, dirs, files in os.walk(ISSUE_MAPPING_DIR):
+        for file in files:
+            if cve_id in file:
+                return os.path.join(root, file)
+    return None
+
+def apply_patch(patch_file, source_code_dir):
+    if not os.path.isfile(patch_file):
+        print(f"Error patch dir")
+        return False
+
+    if not os.path.isdir(source_code_dir):
+        print(f"Error source dir")
+
+        return False
+    os.chdir(source_code_dir)
+
+    try:
+        result = subprocess.run(['git', 'apply', '-p1', patch_file], check=True, text=True, capture_output=True)
+        print("apply patch success")
+        print(result.stdout)
+        return True
+    except subprocess.CalledProcessError as e:
+        print("erro apply")
+        print(e.stderr)
+        return False
+
+def main():
+    cve_id = input("Issue mapping ID: ").strip()
+
+    patch_file = find_patch_file(cve_id)
+    
+    if patch_file:
+        if apply_patch(patch_file, SOURCE_CODE_DIR):
+            print("Done apply")
+        else:
+            print("Cant apply")
+    else:
+        print("Not see apply")
+
+if __name__ == "__main__":
+    main()
+
+```
+
 
 
 #### 11. Based on the test result without html file, how to read? 
@@ -132,7 +189,7 @@ for build in root.findall('Build'):
     print(f"Number of retries: {int(invocation_id) -1 }  ")
 ```
 
-#### 13. Meaning of files in log folder?
+#### 14. Meaning of files in log folder?
 
 - **device_logcat_setup_xxx.txt**: contain logcat from device during setup phase before starting test.
 
