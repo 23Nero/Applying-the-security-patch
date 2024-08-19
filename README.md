@@ -102,8 +102,8 @@ reference: https://source.android.com/docs/core/tests/development/atest
 
 
 #### 12. When running the test, which 2 folders are created and their uses?
-- results: this folder contains the results of the test, including reports and results information.
-- logs: this directory contains detailed log files about the test process, helping you track and analyze events and errors.
+- #results: this folder contains the results of the test, including reports and results information.
+- #logs: this directory contains detailed log files about the test process, helping you track and analyze events and errors.
 
 #### 13. How to check the number of retries when I have results given by others?
 
@@ -125,3 +125,6 @@ for build in root.findall('Build'):
     print(f"Invocation ID: {invocation_id}")
     print(f"Number of retries: {int(invocation_id) -1 }  ")
 ```
+
+#### 13. Meaning of files in log folder?
+
