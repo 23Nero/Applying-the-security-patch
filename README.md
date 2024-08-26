@@ -1,7 +1,5 @@
 
-# Applying the security patche
-
-
+# Applying the security patch
 
 
 #### 2. How to check your security patch level on the flashed devices? 
